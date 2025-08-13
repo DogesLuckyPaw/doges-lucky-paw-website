@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doge's Lucky Paw - The Next Big Thing!</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Dark background fallback */
+            color: #e2e8f0; /* Light text */
+            /* Background image: Using doge_astronaut_background.jpg */
+            background-image: url('doge_astronaut_background.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .gradient-text {
+            background-image: linear-gradient(to right, #6EE7B7, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-primary {
+            background-image: linear-gradient(to right, #FDE68A, #F59E0B);
+            color: #1a202c;
+            font-weight: bold;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px 0 rgba(253, 230, 138, 0.7);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px 0 rgba(253, 230, 138, 0.9);
+        }
+        .card {
+            background-color: rgba(45, 55, 72, 0.5);
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        /* Loading spinner basic styles */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3B82F6;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Positioning with glow effect for collage images to prevent overlap */
+        .collage-container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .collage-item {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 0.75rem;
+            box-shadow: 0 0 10px 3px rgba(253, 230, 138, 0.5), 0 0 20px 5px rgba(253, 230, 138, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .collage-item:hover {
+            transform: scale(1.1);
+            z-index: 100;
+        }
+        /* Individual image positions with NO overlap and added spacing */
+        .item-1 { top: 100px; left: 0; }
+        .item-2 { top: 0; left: 175px; }
+        .item-3 { top: 50px; left: 350px; }
+        .item-4 { top: 275px; left: 0; }
+        .item-5 { top: 175px; left: 175px; }
+        .item-6 { top: 225px; left: 350px; }
+        .item-7 { top: 350px; left: 175px; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+
+    <!-- Header/Navigation -->
+    <header class="w-full max-w-6xl mx-auto py-4 flex justify-between items-center z-10">
+        <div class="text-3xl font-bold gradient-text">Doge's Lucky Paw</div>
+        <nav>
+            <ul class="flex space-x-6">
+                <li><a href="#hero" class="hover:text-yellow-400 transition duration-300">Home</a></li>
+                <li><a href="#about" class="hover:text-yellow-400 transition duration-300">About</a></li>
+                <li><a href="#roadmap" class="hover:text-yellow-400 transition duration-300">Roadmap</a></li>
+                <li><a href="#how-to-buy" class="hover:text-yellow-400 transition duration-300">How to Buy</a></li>
+                <li><a href="#tokenomics-security" class="hover:text-yellow-400 transition duration-300">Tokenomics & Security</a></li>
+                <li><a href="#faq" class="hover:text-yellow-400 transition duration-300">FAQ</a></li>
+                <li><a href="#community" class="hover:text-yellow-400 transition duration-300">Community</a></li>
+                <li><a href="disclaimer-page" class="hover:text-yellow-400 transition duration-300">Disclaimer</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center py-16 md:py-24 text-center md:text-left relative z-10">
+        <div class="md:w-1/2 p-4">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 gradient-text">
+                Introducing <br class="hidden md:block"> The Ultimate <br class="hidden md:block"> <span class="text-yellow-400">Memecoin!</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8">
+                It's not just a coin, it's a movement. Join the fun!
+            </p>
+            <a href="https://pump.fun/coin/A4mwkaapA6YMJtDB2ozBoX29GffJ4PMYBStvXV7aBwKR" class="btn-primary inline-block text-lg md:text-xl">
+                BUY $PAW NOW!
+            </a>
+        </div>
+        <div class="md:w-1/2 p-4 mt-8 md:mt-0 flex justify-center">
+            <!-- Photo collage of the mascot. Updated image paths. -->
+            <div class="collage-container">
+                <img src="doge_splash.jpg" alt="Doge diving" class="collage-item item-1">
+                <img src="doge_county_fair.jpg" alt="Doge on a podium" class="collage-item item-2">
+                <img src="doge_building_website.jpg" alt="Doge coding" class="collage-item item-3">
+                <img src="doge_football_trainning_camp.jpg" alt="Doge as a football player" class="collage-item item-4">
+                <img src="doge_jedi.jpg" alt="Doge with a lightsaber" class="collage-item item-5">
+                <img src="doge_astronaut_background.jpg" alt="Doge astronaut" class="collage-item item-6">
+                <img src="doge_train_conductor.jpg" alt="Doge as a train conductor" class="collage-item item-7">
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Data Section -->
+    <section id="market-data" class="w-full max-w-6xl mx-auto py-16 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 text-center">
+            <div class="card p-6">
+                <h3 class="text-xl font-semibold text-gray-300 mb-2">Bonding Curve Progress</h3>
+                <p id="bonding-curve-progress-value" class="text-3xl font-bold text-green-400">Loading...</p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-xl font-semibold text-gray-300 mb-2">Live Market Cap</h3>
+                <p id="live-market-cap-value" class="text-3xl font-bold text-blue-400">Loading...</p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-xl font-semibold text-gray-300 mb-2">Liquidity</h3>
+                <p id="liquidity-value" class="text-3xl font-bold text-purple-400">Loading...</p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-xl font-semibold text-gray-300 mb-2">Total Supply</h3>
+                <p class="text-3xl font-bold text-blue-400">1,000,000,000 $PAW</p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-xl font-semibold text-gray-300 mb-2">Circulating Supply</h3>
+                <p id="circulating-supply-value" class="text-3xl font-bold text-purple-400">Loading...</p>
+            </div>
+            <div class="card p-6">
+                <h3 class="text-xl font-semibold text-gray-300 mb-2">Contract Address</h3>
+                <p id="contract-address" class="text-lg font-mono text-yellow-300 break-all cursor-pointer" title="Click to copy">
+                    A4mwkaapA6YMJtDB2ozBoX29GffJ4PMYBStvXV7aBwKR
+                </p>
+                <button onclick="copyContractAddress()" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">Copy Address</button>
+            </div>
+        </div>
+        <div id="last-updated" class="text-center text-sm text-gray-400 mt-4"></div>
+    </section>
+
+    <!-- About/Vision Section -->
+    <section id="about" class="w-full max-w-6xl mx-auto py-16 text-center relative z-10">
+        <h2 class="text-4xl font-bold gradient-text mb-8">About Doge’s Lucky Paw</h2>
+        <div class="card p-8 max-w-3xl mx-auto">
+            <p class="text-lg text-gray-200 leading-relaxed text-left md:text-justify flex-1">
+                Doge’s Lucky Paw isn't just another meme coin; it's a journey fueled by the adventures of our favorite pup. He's more than a mascot—he’s the lovable champion who embodies the spirit of our community. From leaping into the pool to make a big splash to planting our $PAW flag on the moon, he’s a symbol of daring, fun, and collective ambition.<br><br>
+                He’s our dedicated train conductor on the "lucky train to riches," the determined quarterback training to be the MVP (Most Valuable Pup), and the nerdy webmaster building the foundation for our future. His story is our story: a community-driven movement built on shared humor and a unified vision for success.<br><br>
+                Doge’s Lucky Paw is about believing in the power of the pack. It's a project where every member is part of the adventure, cheering on our pup and driving the project forward, one paw at a time. Hop on board and join us as we continue to build, win, and make history with the most amazing pup in crypto!
+            </p>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="w-full max-w-6xl mx-auto py-16 text-center relative z-10">
+        <h2 class="text-4xl font-bold gradient-text mb-8">Roadmap</h2>
+        <p class="text-lg text-gray-200 mb-8 max-w-3xl mx-auto">
+            Our roadmap is a community-first approach, focusing on building a strong foundation and expanding our reach. This is a living document, and we will adapt to community feedback and market dynamics.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            <!-- Phase 1 Card -->
+            <div class="card p-6">
+                <h3 class="text-2xl font-semibold text-yellow-400 mb-4">Phase 1: Genesis & Community Building</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-200">
+                    <li><strong class="font-semibold">Launch:</strong> Deploy the $PAW token on the Solana network via a fair launch on a platform like Pump.fun.</li>
+                    <li><strong class="font-semibold">Initial Marketing:</strong> A viral social media campaign focusing on the adventures of our lucky pup.</li>
+                    <li><strong class="font-semibold">Community Foundation:</strong> Establish official social media channels (e.g., Telegram, X (Twitter)) to foster a strong community.</li>
+                    <li><strong class="font-semibold">Website:</strong> Launch a dedicated website for Doge’s Lucky Paw with updated information and a clear roadmap.</li>
+                </ul>
+            </div>
+            <!-- Phase 2 Card -->
+            <div class="card p-6">
+                <h3 class="text-2xl font-semibold text-yellow-400 mb-4">Phase 2: Expansion & Ecosystem Growth</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-200">
+                    <li><strong class="font-semibold">Graduation:</strong> Hit the bonding curve's liquidity target to graduate to Raydium.</li>
+                    <li><strong class="font-semibold">Partnerships:</strong> Form partnerships with key influencers and other community projects.</li>
+                    <li><strong class="font-semibold">Merchandise:</strong> Explore creating official $PAW merchandise featuring our pup in his various adventures (e.g., as a conductor, quarterback, etc.).</li>
+                </ul>
+            </div>
+            <!-- Phase 3 Card -->
+            <div class="card p-6">
+                <h3 class="text-2xl font-semibold text-yellow-400 mb-4">Phase 3: The Future</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-200">
+                    <li><strong class="font-semibold">Decentralized Governance:</strong> Introduce a governance model that allows token holders to vote on key project decisions.</li>
+                    <li><strong class="font-semibold">Utility:</strong> Explore potential utility for the token, such as integration into community games, NFTs, or other fun applications.</li>
+                    <li><strong class="font-semibold">Further Listings:</strong> Pursue listings on larger decentralized and centralized exchanges.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Buy Section -->
+    <section id="how-to-buy" class="w-full max-w-6xl mx-auto py-16 text-center relative z-10">
+        <h2 class="text-4xl font-bold gradient-text mb-8">How to Buy $PAW</h2>
+        <div class="card p-8 max-w-3xl mx-auto">
+            <ol class="list-decimal list-inside space-y-6 text-lg text-gray-200 text-left md:text-justify">
+                <li>
+                    <strong class="text-yellow-400">Step 1: Get a Solana Wallet</strong><br>
+                    Install a Solana-compatible wallet like Phantom, Solflare, or Backpack. You can find these on your browser's extension store or as a mobile app.
+                </li>
+                <li>
+                    <strong class="text-yellow-400">Step 2: Fund Your Wallet with SOL</strong><br>
+                    Purchase SOL from a centralized exchange (like Coinbase or Binance) and transfer it to your new Solana wallet. You'll need SOL to buy $PAW and cover transaction fees.
+                </li>
+                <li>
+                    <strong class="text-yellow-400">Step 3: Buy $PAW on Pump.fun</strong><br>
+                    Click the "BUY $PAW NOW!" button on our website to be redirected to our page on Pump.fun. Connect your wallet and swap your SOL for $PAW. It's a simple and secure process!
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Tokenomics & Security Section -->
+    <section id="tokenomics-security" class="w-full max-w-6xl mx-auto py-16 text-center relative z-10">
+        <h2 class="text-4xl font-bold gradient-text mb-8">Tokenomics & Security</h2>
+        <div class="card p-8 max-w-3xl mx-auto">
+            <h3 class="text-2xl font-semibold text-yellow-400 mb-4">Tokenomics: A Fair Launch</h3>
+            <p class="text-lg text-gray-200 leading-relaxed text-left md:text-justify mb-8">
+                $PAW tokenomics are designed for a 100% fair and transparent launch via the Pump.fun platform. The entire token supply of **1,000,000,000 $PAW** is deployed on a bonding curve, which means there is no presale, no team allocation, and no private wallets. As the community buys, the price and liquidity automatically increase.
+            </p>
+            <h3 class="text-2xl font-semibold text-yellow-400 mb-4">Security: Leveraging Pump.fun</h3>
+            <p class="text-lg text-gray-200 leading-relaxed text-left md:text-justify">
+                We leverage the robust security measures of the Pump.fun platform. Pump.fun's model automatically creates and locks liquidity as the bonding curve progresses. Once the token "graduates" to Raydium, the liquidity is permanently locked, ensuring a secure and rug-pull-free environment for all token holders. This decentralized and automated process protects our community from malicious actions.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="w-full max-w-6xl mx-auto py-16 text-center relative z-10">
+        <h2 class="text-4xl font-bold gradient-text mb-8">Frequently Asked Questions</h2>
+        <div class="card p-8 max-w-3xl mx-auto space-y-6 text-left">
+            <div>
+                <h4 class="text-xl font-semibold text-yellow-400 mb-2">What is Doge’s Lucky Paw?</h4>
+                <p class="text-lg text-gray-200">
+                    Doge’s Lucky Paw ($PAW) is a community-driven memecoin on the Solana blockchain. It's a fun and engaging project centered around our lucky pup mascot.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold text-yellow-400 mb-2">What is a bonding curve?</h4>
+                <p class="text-lg text-gray-200">
+                    A bonding curve is a smart contract that automatically sets the price of a token based on its supply. On Pump.fun, as more people buy, the price and liquidity increase in a predictable way.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-xl font-semibold text-yellow-400 mb-2">How is this a "fair launch"?</h4>
+                <p class="text-lg text-gray-200">
+                    A fair launch means there was no presale, and the project team did not receive any tokens. 100% of the token supply is made available to the public from the start, giving everyone an equal opportunity to participate.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community & Social Section -->
+    <section id="community" class="w-full max-w-6xl mx-auto py-16 text-center relative z-10">
+        <h2 class="text-4xl font-bold gradient-text mb-8">Join Our Community!</h2>
+        <div class="flex flex-wrap justify-center gap-6">
+            <a href="https://x.com/DogesLuckyPaw" class="card p-4 flex items-center space-x-3 hover:scale-105 transition duration-300">
+                <i class="fa-brands fa-x-twitter text-3xl text-gray-300"></i>
+                <span class="text-xl font-semibold">Follow on X</span>
+            </a>
+            <a href="javascript:void(0);" class="card p-4 flex items-center space-x-3 cursor-not-allowed">
+                <i class="fa-brands fa-telegram text-3xl text-gray-300"></i>
+                <span class="text-xl font-semibold">Coming Soon</span>
+            </a>
+            <a href="https://pump.fun/chat/NrUIY98pE4" class="card p-4 flex items-center space-x-3 hover:scale-105 transition duration-300">
+                <i class="fa-solid fa-rocket text-3xl text-gray-300"></i>
+                <span class="text-xl font-semibold">Join Pump.fun Chat</span>
+            </a>
+            <!-- Add more social links as needed -->
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section id="disclaimer" class="w-full max-w-6xl mx-auto py-16 text-center relative z-10">
+        <h2 class="text-4xl font-bold gradient-text mb-8">Disclaimer</h2>
+        <div class="card p-8 max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
+            <!-- Using doge_courtroom_judge.jpg for the Judge Pup -->
+            <img src="doge_courtroom_judge.jpg" alt="Pawalegal Judge Pup" class="w-64 h-64 object-contain rounded-lg shadow-lg">
+            <p class="text-lg text-gray-200 leading-relaxed text-left md:text-justify flex-1">
+                Order in the court! 🧑‍⚖️ Our Pawalegal Judge Pup has ruled: Always read the disclaimer! It's how we keep the $PAW community safe and savvy. Find our full disclaimer here: <a href="disclaimer-page" class="text-blue-400 hover:underline">Disclaimer Page</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-6xl mx-auto py-8 text-center text-gray-400 text-sm relative z-10">
+        <p>&copy; 2025 Doge's Lucky Paw. All rights reserved. Built with passion.</p>
+    </footer>
+
+    <script>
+        // Function to copy contract address to clipboard
+        function copyContractAddress() {
+            const contractAddress = document.getElementById('contract-address').innerText;
+            const tempInput = document.createElement('textarea');
+            tempInput.value = contractAddress;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            alert('Contract address copied to clipboard!'); // You might replace this with a more subtle UI notification
+        }
+
+        // Function to format numbers with commas for thousands
+        function formatNumberWithCommas(value) {
+            if (value === null || isNaN(value)) {
+                return 'N/A';
+            }
+            return new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(value);
+        }
+
+        // Function to format numbers as currency
+        function formatCurrency(value) {
+            if (value === null || isNaN(value)) {
+                return 'N/A';
+            }
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(value);
+        }
+
+        // Function to fetch and update market data from your Cloudflare Worker
+        async function updateMarketData() {
+            const bondingCurveProgressElement = document.getElementById('bonding-curve-progress-value');
+            const liveMarketCapElement = document.getElementById('live-market-cap-value');
+            const liquidityElement = document.getElementById('liquidity-value');
+            const circulatingSupplyElement = document.getElementById('circulating-supply-value');
+            const lastUpdatedElement = document.getElementById('last-updated');
+            
+            // =====================================================================
+            // IMPORTANT: This URL now points to your deployed Cloudflare Worker.
+            // =====================================================================
+            const WORKER_URL = 'https://doges-lucky-paw-backend.pfeifferjohnathon.workers.dev/api/market-data';
+            const localStorageKey = 'dogePawMarketData';
+
+            // Function to display data on the page
+            const displayData = (data) => {
+                if (!data) return;
+
+                const {bondingCurveProgress, liveMarketCap, liquidity, circulatingSupply, lastUpdated} = data;
+                
+                bondingCurveProgressElement.textContent = !isNaN(bondingCurveProgress) ? `${bondingCurveProgress.toFixed(2)}%` : 'N/A';
+                liveMarketCapElement.textContent = !isNaN(liveMarketCap) ? formatCurrency(liveMarketCap) : 'N/A';
+                liquidityElement.textContent = !isNaN(liquidity) ? formatCurrency(liquidity) : 'N/A';
+                circulatingSupplyElement.textContent = !isNaN(circulatingSupply) ? `${formatNumberWithCommas(circulatingSupply)} $PAW` : 'N/A';
+                lastUpdatedElement.textContent = lastUpdated ? `Last updated: ${new Date(lastUpdated).toLocaleString()}` : '';
+            };
+
+            // First, try to load data from local storage
+            const cachedData = localStorage.getItem(localStorageKey);
+            if (cachedData) {
+                displayData(JSON.parse(cachedData));
+            } else {
+                // If no cached data, show initial loading state
+                bondingCurveProgressElement.textContent = 'Loading...';
+                liveMarketCapElement.textContent = 'Loading...';
+                liquidityElement.textContent = 'Loading...';
+                circulatingSupplyElement.textContent = 'Loading...';
+            }
+
+            let retries = 0;
+            const maxRetries = 5;
+            let delay = 1000;
+
+            while (retries < maxRetries) {
+                try {
+                    const response = await fetch(WORKER_URL); // Fetch from your Worker
+                    
+                    if (!response.ok) {
+                        const errorDetails = await response.json();
+                        throw new Error(`Worker error! Status: ${response.status}, Message: ${errorDetails.error || 'Unknown error'}`);
+                    }
+
+                    const data = await response.json();
+                    displayData(data);
+                    localStorage.setItem(localStorageKey, JSON.stringify(data));
+                    return; // Success, exit loop
+
+                } catch (error) {
+                    console.error("Error fetching market data from Worker:", error);
+                    if (retries === maxRetries - 1) {
+                        console.error("Failed to fetch market data after multiple retries.");
+                        // Optionally display a user-friendly error message on the page
+                    }
+                    retries++;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = updateMarketData;
+    </script>
+</body>
+</html>
