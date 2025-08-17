@@ -65,9 +65,19 @@
         /* --- Mobile Navigation Styles --- */
         #mobile-menu {
             display: none; /* Hidden by default */
+            position: absolute; /* Changed to absolute for overlay */
+            top: 64px; /* Position below the header */
+            left: 0;
+            width: 100%;
+            background-color: #2d3748; /* Darker background for mobile menu */
+            padding: 1rem 0;
+            border-radius: 0 0 1.5rem 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 40; /* Ensure it's above content */
         }
         #mobile-menu.active {
             display: flex; /* Show when active */
+            flex-direction: column;
         }
         @media (max-width: 767px) { /* On small screens */
             .navbar-desktop {
@@ -76,21 +86,15 @@
             .navbar-mobile-toggle {
                 display: block; /* Show hamburger icon */
             }
-            #mobile-menu {
-                flex-direction: column;
-                width: 100%;
-                background-color: #2d3748; /* Darker background for mobile menu */
-                position: absolute;
-                top: 64px; /* Adjust based on header height */
-                left: 0;
-                padding: 1rem 0;
-                border-radius: 0 0 1.5rem 1.5rem;
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            }
             #mobile-menu li {
                 padding: 0.5rem 1rem;
                 text-align: center;
                 width: 100%;
+            }
+            /* Ensure header is positioned for z-index to work */
+            header {
+                position: relative; /* Needed for z-index to apply over content */
+                z-index: 50; /* Ensure header is on top */
             }
         }
         @media (min-width: 768px) { /* On medium and larger screens */
@@ -164,7 +168,7 @@
 <body class="min-h-screen flex flex-col items-center justify-center p-4">
 
     <!-- Header/Navigation -->
-    <header class="w-full max-w-6xl mx-auto py-4 flex justify-between items-center z-10">
+    <header class="w-full max-w-6xl mx-auto py-4 flex justify-between items-center z-50 relative"> <!-- Added relative and z-50 -->
         <div class="text-3xl font-bold gradient-text">Doge's Lucky Paw</div>
         <!-- Desktop Navigation -->
         <nav class="navbar-desktop">
@@ -187,7 +191,7 @@
     </header>
 
     <!-- Mobile Navigation Menu (Hidden by default, toggled by JS) -->
-    <nav id="mobile-menu" class="hidden flex-col items-center space-y-4 w-full bg-gray-800 py-4 md:hidden absolute top-16 left-0 rounded-b-lg shadow-lg">
+    <nav id="mobile-menu" class="hidden flex-col items-center space-y-4 w-full bg-gray-800 py-4 md:hidden rounded-b-lg shadow-lg"> <!-- Removed absolute position here, moved to CSS -->
         <ul class="flex flex-col space-y-4 text-center w-full">
             <li><a href="#hero" class="block py-2 hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">Home</a></li>
             <li><a href="#about" class="block py-2 hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">About</a></li>
@@ -454,7 +458,7 @@
             }).format(value);
         }
 
-        // Function to fetch and update market data from your Cloudflare Worker
+        // Function to fetch and update market data, with local storage fallback
         async function updateMarketData() {
             const bondingCurveProgressElement = document.getElementById('bonding-curve-progress-value');
             const liveMarketCapElement = document.getElementById('live-market-cap-value');
