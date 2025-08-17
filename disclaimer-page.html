@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doge's Lucky Paw - Disclaimer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Dark background fallback */
+            color: #e2e8f0; /* Light text */
+            /* Background image: Using doge_astronaut_background.jpg */
+            background-image: url('doge_astronaut_background.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .gradient-text {
+            background-image: linear-gradient(to right, #6EE7B7, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background-color: rgba(45, 55, 72, 0.5); /* Darker card background with more transparency */
+            border-radius: 1.5rem; /* More rounded corners */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .btn-secondary {
+            background-color: #3B82F6;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #2563EB;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.5);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center p-4">
+
+    <!-- Header/Navigation -->
+    <header class="w-full max-w-6xl mx-auto py-4 flex justify-between items-center z-10">
+        <div class="text-3xl font-bold gradient-text">Doge's Lucky Paw</div>
+        <nav>
+            <a href="index.html" class="btn-secondary">Back to Main Page</a>
+        </nav>
+    </header>
+
+    <!-- Disclaimer Content Section -->
+    <section id="disclaimer-content" class="w-full max-w-4xl mx-auto py-16 relative z-10">
+        <h1 class="text-5xl font-extrabold gradient-text text-center mb-12">Disclaimer</h1>
+
+        <div class="card p-8 mb-8 text-center">
+            <!-- Using doge_courtroom_judge.jpg for the Judge Pup -->
+            <img src="doge_courtroom_judge.jpg" alt="Pawalegal Judge Pup" class="w-48 h-48 object-contain rounded-lg shadow-lg mx-auto mb-6">
+            <p class="text-lg text-gray-200 leading-relaxed">
+                Order in the court! 🧑‍⚖️ Our Pawalegal Judge Pup has ruled: Always read the disclaimer! It's how we keep the $PAW community safe and savvy.
+            </p>
+        </div>
+
+        <div class="card p-8">
+            <h3 class="text-2xl font-bold text-yellow-300 mb-4">Please Read Carefully Before Engaging with $PAW</h3>
+            <p class="text-lg text-gray-200 leading-relaxed mb-6">
+                This website and all content, materials, and information related to Doge's Lucky Paw ($PAW) are provided for informational and entertainment purposes only. They do not constitute financial, investment, legal, tax, or any other professional advice.
+            </p>
+
+            <h3 class="text-2xl font-bold text-yellow-300 mb-4">Cryptocurrency Risks:</h3>
+            <ul class="list-disc list-inside text-lg text-gray-200 leading-relaxed mb-6 space-y-2">
+                <li><strong>Highly Volatile:</strong> Cryptocurrencies, including $PAW, are extremely volatile and subject to rapid price fluctuations. Their value can go down as well as up, and you could lose all of your investment.</li>
+                <li><strong>No Guarantees:</strong> There is no guarantee of profits or returns. Past performance is not indicative of future results.</li>
+                <li><strong>Not Legal Tender:</strong> $PAW is not legal tender and is not backed by any government or central bank.</li>
+                <li><strong>Liquidity Risks:</strong> Trading $PAW may carry liquidity risks, meaning you may not be able to sell your tokens quickly or at a desired price.</li>
+                <li><strong>Regulatory Uncertainty:</strong> The regulatory landscape for cryptocurrencies is constantly evolving. Future regulations could negatively impact the value and usability of $PAW.</li>
+                <li><strong>Technology Risks:</strong> There are inherent risks associated with blockchain technology, smart contracts, and decentralized finance (DeFi), including but not limited to bugs, exploits, or network congestion.</li>
+            </ul>
+
+            <h3 class="text-2xl font-bold text-yellow-300 mb-4">No Financial Advice:</h3>
+            <p class="text-lg text-gray-200 leading-relaxed mb-6">
+                The information on this site or within our community channels (Telegram, X, etc.) is not intended as financial advice. You should conduct your own thorough research (Due Diligence - DYOR) and consult with a qualified financial advisor before making any investment decisions.
+            </p>
+
+            <h3 class="text-2xl font-bold text-yellow-300 mb-4">User Responsibility:</h3>
+            <p class="text-lg text-gray-200 leading-relaxed mb-6">
+                By engaging with $PAW, you acknowledge and accept these risks. You are solely responsible for your own investment decisions and for complying with all applicable local laws and regulations.
+            </p>
+
+            <p class="text-xl font-bold text-red-400 leading-relaxed">
+                This project is a meme coin and should be treated as such. It is for entertainment purposes and has no inherent value or expectation of financial return.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-6xl mx-auto py-8 text-center text-gray-400 text-sm relative z-10">
+        <p>&copy; 2025 Doge's Lucky Paw. All rights reserved. Built with passion.</p>
+    </footer>
+
+</body>
+</html>

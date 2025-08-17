@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doge's Lucky Paw - Whitepaper</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Dark background fallback */
+            color: #e2e8f0; /* Light text */
+            /* Background image: Using doge_astronaut_background.jpg */
+            background-image: url('doge_astronaut_background.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .gradient-text {
+            background-image: linear-gradient(to right, #6EE7B7, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background-color: rgba(45, 55, 72, 0.5); /* Darker card background with more transparency */
+            border-radius: 1.5rem; /* More rounded corners */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .btn-secondary {
+            background-color: #3B82F6;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #2563EB;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.5);
+        }
+        /* Specific styles for whitepaper content */
+        .whitepaper-content h1 {
+            font-size: 2.5rem; /* Equivalent to text-4xl */
+            font-weight: bold;
+            margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+            text-align: center;
+        }
+        .whitepaper-content h3 {
+            font-size: 1.75rem; /* Equivalent to text-2xl */
+            font-weight: 600;
+            margin-top: 2rem; /* Equivalent to mt-8 */
+            margin-bottom: 1rem; /* Equivalent to mb-4 */
+        }
+        .whitepaper-content p, .whitepaper-content ul {
+            font-size: 1.125rem; /* Equivalent to text-lg */
+            line-height: 1.75rem; /* Equivalent to leading-relaxed */
+            margin-bottom: 1.5rem; /* Equivalent to mb-6 */
+        }
+        .whitepaper-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem; /* Equivalent to pl-6 */
+        }
+        .whitepaper-content strong {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center p-4">
+
+    <!-- Header/Navigation -->
+    <header class="w-full max-w-6xl mx-auto py-4 flex justify-between items-center z-10">
+        <div class="text-3xl font-bold gradient-text">Doge's Lucky Paw</div>
+        <nav>
+            <a href="index.html" class="btn-secondary">Back to Main Page</a>
+        </nav>
+    </header>
+
+    <!-- Whitepaper Content Section -->
+    <section id="whitepaper-content" class="w-full max-w-4xl mx-auto py-16 relative z-10">
+        <div class="card p-8">
+            <h1 class="gradient-text">The Doge’s Lucky Paw Whitepaper</h1>
+
+            <h3 class="text-yellow-300">A Community-Driven Digital Asset</h3>
+            <p class="text-gray-200">
+                <strong>Document Version:</strong> 1.0<br>
+                <strong>Release Date:</strong> August 1, 2025
+            </p>
+
+            <hr class="my-6 border-gray-600">
+
+            <h3 class="text-yellow-300">1. Introduction</h3>
+            <p class="text-gray-200">
+                The cryptocurrency market is an ever-evolving landscape, driven by both innovative technology and vibrant community culture. Meme coins, in particular, have demonstrated the power of community-led movements, turning internet culture into a new form of digital asset.
+            </p>
+            <p class="text-gray-200">
+                <strong>Doge’s Lucky Paw</strong> is a meme coin that embodies the spirit of its core concept: a friendly, adventurous, and lucky Shiba Inu pup who is destined for greatness. We aim to create a fun, engaging, and welcoming community for everyone, from seasoned crypto veterans to newcomers who simply love the Lucky Doge/Pup meme and the spirit of a community that wins together. This project is a true testament to decentralized community-building, launching with a 100% fair launch model with no team allocation or presale.
+            </p>
+
+            <h3 class="text-yellow-300">2. Vision & Mission</h3>
+            <p class="text-gray-200">
+                Our vision is to become the premier community-driven meme coin in the Solana ecosystem, uniting enthusiasts from around the world. We believe in the power of shared humor and collective action to create value. Our mission is to:
+            </p>
+            <ul class="text-gray-200 space-y-2">
+                <li>Build a robust and active community around the adventures of our lucky pup.</li>
+                <li>Maintain a completely fair, transparent, and decentralized ecosystem from day one.</li>
+                <li>Provide a fun and accessible entry point to the crypto market.</li>
+            </ul>
+
+            <h3 class="text-yellow-300">3. Tokenomics</h3>
+            <p class="text-gray-200">
+                <strong>Doge’s Lucky Paw</strong> is a Solana-based SPL token with a simple and transparent tokenomics structure designed for complete community ownership and long-term sustainability.
+            </p>
+            <ul class="text-gray-200 space-y-2">
+                <li><strong>Token Name:</strong> Doge’s Lucky Paw</li>
+                <li><strong>Ticker:</strong> $PAW</li>
+                <li><strong>Total Supply:</strong> 1,000,000,000,000</li>
+            </ul>
+            <p class="text-gray-200">
+                <strong>Distribution (Fair Launch Model):</strong>
+            </p>
+            <ul class="text-gray-200 space-y-2">
+                <li><strong>100% of the total supply</strong> is initially created and made available on a fair launch platform, <strong>Pump.fun</strong>.</li>
+                <li>The launch operates on a bonding curve. As the community buys the token, liquidity is automatically added, and the price gradually increases.</li>
+                <li>There is **no presale, no team allocation, and no private wallets**.</li>
+                <li>**Liquidity is created and then locked forever** upon hitting the bonding curve's market cap target, at which point the token **"graduates" to Raydium**, a leading decentralized exchange.</li>
+                <li>All marketing, development, and community efforts are driven and funded by the community itself, reflecting a truly decentralized project.</li>
+            </ul>
+
+            <h3 class="text-yellow-300">4. Roadmap</h3>
+            <p class="text-gray-200">
+                Our roadmap is a community-first approach, focusing on building a strong foundation and expanding our reach. This is a living document, and we will adapt to community feedback and market dynamics.
+            </p>
+            <p class="text-gray-200">
+                <strong>Phase 1: Genesis & Community Building</strong>
+            </p>
+            <ul class="text-gray-200 space-y-2">
+                <li><strong>Launch:</strong> Deploy the **$PAW** token on the **Solana** network via a fair launch on a platform like **Pump.fun.**</li>
+                <li><strong>Initial Marketing:</strong> A viral social media campaign focusing on the **adventures of our lucky pup**.</li>
+                <li><strong>Community Foundation:</strong> Establish official social media channels (**e.g., Telegram, X (Twitter)**) to foster a strong community.</li>
+                <li><strong>Website:</strong> Launch a dedicated website for **Doge’s Lucky Paw** with updated information and a clear roadmap.</li>
+            </ul>
+            <p class="text-gray-200">
+                <strong>Phase 2: Expansion & Ecosystem Growth</strong>
+            </p>
+            <ul class="text-gray-200 space-y-2">
+                <li><strong>Graduation:</strong> Hit the bonding curve's liquidity target to **graduate to Raydium.**</li>
+                <li><strong>Partnerships:</strong> Form partnerships with key influencers and other community projects.</li>
+                <li><strong>Merchandise:** Explore creating official **$PAW** merchandise featuring our pup in his various adventures (e.g., as a conductor, quarterback, etc.).</li>
+            </ul>
+            <p class="text-gray-200">
+                <strong>Phase 3: The Future</strong>
+            </p>
+            <ul class="text-gray-200 space-y-2">
+                <li><strong>Decentralized Governance:</strong> Introduce a governance model that allows token holders to vote on key project decisions.</li>
+                <li><strong>Utility:</strong> Explore potential utility for the token, such as integration into community games, NFTs, or other fun applications.</li>
+                <li><strong>Further Listings:</strong> Pursue listings on larger decentralized and centralized exchanges.</li>
+            </ul>
+
+            <h3 class="text-yellow-300">5. Disclaimer</h3>
+            <p class="text-gray-200">
+                This whitepaper is intended for informational purposes only. The **Doge’s Lucky Paw** token is a meme coin with no inherent value and should be considered a high-risk, speculative asset. There is no guarantee of profits or returns. This is not financial advice. All individuals are advised to conduct their own research and exercise caution before making any investment decisions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-6xl mx-auto py-8 text-center text-gray-400 text-sm relative z-10">
+        <p>&copy; 2025 Doge's Lucky Paw. All rights reserved. Built with passion.</p>
+    </footer>
+
+</body>
+</html>

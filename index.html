@@ -61,18 +61,64 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        /* Positioning with glow effect for collage images to prevent overlap */
+
+        /* --- Mobile Navigation Styles --- */
+        #mobile-menu {
+            display: none; /* Hidden by default */
+        }
+        #mobile-menu.active {
+            display: flex; /* Show when active */
+        }
+        @media (max-width: 767px) { /* On small screens */
+            .navbar-desktop {
+                display: none; /* Hide desktop nav */
+            }
+            .navbar-mobile-toggle {
+                display: block; /* Show hamburger icon */
+            }
+            #mobile-menu {
+                flex-direction: column;
+                width: 100%;
+                background-color: #2d3748; /* Darker background for mobile menu */
+                position: absolute;
+                top: 64px; /* Adjust based on header height */
+                left: 0;
+                padding: 1rem 0;
+                border-radius: 0 0 1.5rem 1.5rem;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+            #mobile-menu li {
+                padding: 0.5rem 1rem;
+                text-align: center;
+                width: 100%;
+            }
+        }
+        @media (min-width: 768px) { /* On medium and larger screens */
+            .navbar-desktop {
+                display: flex; /* Show desktop nav */
+            }
+            .navbar-mobile-toggle {
+                display: none; /* Hide hamburger icon */
+            }
+            #mobile-menu {
+                display: none; /* Hide mobile menu */
+            }
+        }
+        /* --- End Mobile Navigation Styles --- */
+
+
+        /* --- Collage Specific Styles (Enhanced Responsiveness) --- */
         .collage-container {
             position: relative;
-            width: 500px;
-            height: 500px;
+            width: 500px; /* Default for larger screens */
+            height: 500px; /* Default for larger screens */
             margin-left: auto;
             margin-right: auto;
         }
         .collage-item {
             position: absolute;
-            width: 150px;
-            height: 150px;
+            width: 150px; /* Default for larger screens */
+            height: 150px; /* Default for larger screens */
             object-fit: cover;
             border-radius: 0.75rem;
             box-shadow: 0 0 10px 3px rgba(253, 230, 138, 0.5), 0 0 20px 5px rgba(253, 230, 138, 0.3);
@@ -83,7 +129,8 @@
             transform: scale(1.1);
             z-index: 100;
         }
-        /* Individual image positions with NO overlap and added spacing */
+
+        /* Individual image positions (default for larger screens) */
         .item-1 { top: 100px; left: 0; }
         .item-2 { top: 0; left: 175px; }
         .item-3 { top: 50px; left: 350px; }
@@ -91,6 +138,27 @@
         .item-5 { top: 175px; left: 175px; }
         .item-6 { top: 225px; left: 350px; }
         .item-7 { top: 350px; left: 175px; }
+
+        /* Media query for mobile devices (screens smaller than 768px, Tailwind's 'md' breakpoint) */
+        @media (max-width: 767px) {
+            .collage-container {
+                width: 300px; /* Smaller container for mobile */
+                height: 300px;
+            }
+            .collage-item {
+                width: 80px; /* Smaller images */
+                height: 80px;
+            }
+            /* Adjusted positions for mobile to prevent overlap and fit smaller container */
+            .item-1 { top: 50px; left: 0; }
+            .item-2 { top: 0; left: 110px; }
+            .item-3 { top: 20px; left: 220px; }
+            .item-4 { top: 150px; left: 0; }
+            .item-5 { top: 100px; left: 110px; }
+            .item-6 { top: 120px; left: 220px; }
+            .item-7 { top: 200px; left: 110px; }
+        }
+        /* --- End Collage Specific Styles --- */
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center p-4">
@@ -98,7 +166,8 @@
     <!-- Header/Navigation -->
     <header class="w-full max-w-6xl mx-auto py-4 flex justify-between items-center z-10">
         <div class="text-3xl font-bold gradient-text">Doge's Lucky Paw</div>
-        <nav>
+        <!-- Desktop Navigation -->
+        <nav class="navbar-desktop">
             <ul class="flex space-x-6">
                 <li><a href="#hero" class="hover:text-yellow-400 transition duration-300">Home</a></li>
                 <li><a href="#about" class="hover:text-yellow-400 transition duration-300">About</a></li>
@@ -106,11 +175,32 @@
                 <li><a href="#how-to-buy" class="hover:text-yellow-400 transition duration-300">How to Buy</a></li>
                 <li><a href="#tokenomics-security" class="hover:text-yellow-400 transition duration-300">Tokenomics & Security</a></li>
                 <li><a href="#faq" class="hover:text-yellow-400 transition duration-300">FAQ</a></li>
+                <li><a href="whitepaper.html" class="hover:text-yellow-400 transition duration-300">Whitepaper</a></li> <!-- Whitepaper Link -->
                 <li><a href="#community" class="hover:text-yellow-400 transition duration-300">Community</a></li>
-                <li><a href="disclaimer-page" class="hover:text-yellow-400 transition duration-300">Disclaimer</a></li>
+                <li><a href="disclaimer-page.html" class="hover:text-yellow-400 transition duration-300">Disclaimer</a></li> <!-- Disclaimer Link -->
             </ul>
         </nav>
+        <!-- Mobile Navigation Toggle (Hamburger Icon) -->
+        <button class="navbar-mobile-toggle text-3xl text-white focus:outline-none" onclick="toggleMobileMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
     </header>
+
+    <!-- Mobile Navigation Menu (Hidden by default, toggled by JS) -->
+    <nav id="mobile-menu" class="hidden flex-col items-center space-y-4 w-full bg-gray-800 py-4 md:hidden absolute top-16 left-0 rounded-b-lg shadow-lg">
+        <ul class="flex flex-col space-y-4 text-center w-full">
+            <li><a href="#hero" class="block py-2 hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">Home</a></li>
+            <li><a href="#about" class="block py-2 hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">About</a></li>
+            <li><a href="#roadmap" class="block py-2 hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">Roadmap</a></li>
+            <li><a href="#how-to-buy" class="block py-2 hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">How to Buy</a></li>
+            <li><a href="#tokenomics-security" class="block py-2 hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">Tokenomics & Security</a></li>
+            <li><a href="#faq" class="block py-2 hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">FAQ</a></li>
+            <li><a href="whitepaper.html" class="block py-2 hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">Whitepaper</a></li> <!-- Whitepaper Link -->
+            <li><a href="#community" class="block py-2 hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">Community</a></li>
+            <li><a href="disclaimer-page.html" class="block py-2 hover:text-yellow-400 transition duration-300" onclick="toggleMobileMenu()">Disclaimer</a></li> <!-- Disclaimer Link -->
+        </ul>
+    </nav>
+
 
     <!-- Hero Section -->
     <section id="hero" class="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center py-16 md:py-24 text-center md:text-left relative z-10">
@@ -311,7 +401,7 @@
             <!-- Using doge_courtroom_judge.jpg for the Judge Pup -->
             <img src="doge_courtroom_judge.jpg" alt="Pawalegal Judge Pup" class="w-64 h-64 object-contain rounded-lg shadow-lg">
             <p class="text-lg text-gray-200 leading-relaxed text-left md:text-justify flex-1">
-                Order in the court! 🧑‍⚖️ Our Pawalegal Judge Pup has ruled: Always read the disclaimer! It's how we keep the $PAW community safe and savvy. Find our full disclaimer here: <a href="disclaimer-page" class="text-blue-400 hover:underline">Disclaimer Page</a>
+                Order in the court! 🧑‍⚖️ Our Pawalegal Judge Pup has ruled: Always read the disclaimer! It's how we keep the $PAW community safe and savvy. Find our full disclaimer here: <a href="disclaimer-page.html" class="text-blue-400 hover:underline">Disclaimer Page</a>
             </p>
         </div>
     </section>
@@ -322,6 +412,12 @@
     </footer>
 
     <script>
+        // Function to toggle mobile navigation menu
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+
         // Function to copy contract address to clipboard
         function copyContractAddress() {
             const contractAddress = document.getElementById('contract-address').innerText;
@@ -331,7 +427,7 @@
             tempInput.select();
             document.execCommand('copy');
             document.body.removeChild(tempInput);
-            alert('Contract address copied to clipboard!'); // You might replace this with a more subtle UI notification
+            alert('Contract address copied to clipboard!'); 
         }
 
         // Function to format numbers with commas for thousands
@@ -366,15 +462,16 @@
             const circulatingSupplyElement = document.getElementById('circulating-supply-value');
             const lastUpdatedElement = document.getElementById('last-updated');
             
-            // =====================================================================
-            // IMPORTANT: This URL now points to your deployed Cloudflare Worker.
-            // =====================================================================
-            const WORKER_URL = 'https://doges-lucky-paw-backend.pfeifferjohnathon.workers.dev/api/market-data';
+            // This URL points to your deployed Cloudflare Worker.
+            const WORKER_URL = 'https://doges-lucky-paw-backend.pfeifferjohnathon.workers.dev/api/market-data'; 
             const localStorageKey = 'dogePawMarketData';
 
             // Function to display data on the page
             const displayData = (data) => {
-                if (!data) return;
+                if (!data) {
+                    console.warn("Attempted to display null/undefined data.");
+                    return;
+                }
 
                 const {bondingCurveProgress, liveMarketCap, liquidity, circulatingSupply, lastUpdated} = data;
                 
@@ -382,28 +479,55 @@
                 liveMarketCapElement.textContent = !isNaN(liveMarketCap) ? formatCurrency(liveMarketCap) : 'N/A';
                 liquidityElement.textContent = !isNaN(liquidity) ? formatCurrency(liquidity) : 'N/A';
                 circulatingSupplyElement.textContent = !isNaN(circulatingSupply) ? `${formatNumberWithCommas(circulatingSupply)} $PAW` : 'N/A';
-                lastUpdatedElement.textContent = lastUpdated ? `Last updated: ${new Date(lastUpdated).toLocaleString()}` : '';
+                lastUpdatedElement.textContent = lastUpdated ? `Last updated: ${new Date(lastUpdated).toLocaleString()}` : 'N/A';
             };
 
             // First, try to load data from local storage
-            const cachedData = localStorage.getItem(localStorageKey);
+            let cachedData = null;
+            let lastFetchTimestamp = 0;
+
+            const storedData = localStorage.getItem(localStorageKey);
+            if (storedData) {
+                try {
+                    const parsedStoredData = JSON.parse(storedData);
+                    cachedData = parsedStoredData.data;
+                    lastFetchTimestamp = parsedStoredData.timestamp;
+                } catch (e) {
+                    console.error("Error parsing cached data from local storage:", e);
+                    localStorage.removeItem(localStorageKey); // Clear corrupted data
+                }
+            }
+
+            // Display cached data immediately if available
             if (cachedData) {
-                displayData(JSON.parse(cachedData));
+                displayData(cachedData);
             } else {
                 // If no cached data, show initial loading state
                 bondingCurveProgressElement.textContent = 'Loading...';
                 liveMarketCapElement.textContent = 'Loading...';
                 liquidityElement.textContent = 'Loading...';
                 circulatingSupplyElement.textContent = 'Loading...';
+                lastUpdatedElement.textContent = 'Loading...';
             }
 
+            // Check if 4 hours have passed since the last successful fetch
+            const FOUR_HOURS_IN_MS = 4 * 60 * 60 * 1000;
+            const currentTime = Date.now();
+
+            if (currentTime - lastFetchTimestamp < FOUR_HOURS_IN_MS && cachedData) {
+                console.log("Using cached data. Next fetch in:", (FOUR_HOURS_IN_MS - (currentTime - lastFetchTimestamp)) / 1000 / 60, "minutes");
+                return; // Do not fetch if data is still fresh
+            }
+
+            // If cached data is old or non-existent, proceed to fetch
+            console.log("Fetching new market data...");
             let retries = 0;
             const maxRetries = 5;
             let delay = 1000;
 
             while (retries < maxRetries) {
                 try {
-                    const response = await fetch(WORKER_URL); // Fetch from your Worker
+                    const response = await fetch(WORKER_URL); 
                     
                     if (!response.ok) {
                         const errorDetails = await response.json();
@@ -411,19 +535,30 @@
                     }
 
                     const data = await response.json();
-                    displayData(data);
-                    localStorage.setItem(localStorageKey, JSON.stringify(data));
-                    return; // Success, exit loop
+                    
+                    // Validate if the fetched data is valid and not empty
+                    if (data && Object.keys(data).length > 0 && data.bondingCurveProgress !== undefined) {
+                        displayData(data);
+                        localStorage.setItem(localStorageKey, JSON.stringify({ data: data, timestamp: currentTime }));
+                        return; // Success, exit loop
+                    } else {
+                        console.warn("Fetched data is empty or invalid. Retaining last successful data.");
+                        // If fetched data is invalid, do NOT overwrite local storage.
+                        // The page will continue to display the existing cachedData (if any).
+                        return; // Exit loop, no need to retry for invalid data
+                    }
 
                 } catch (error) {
                     console.error("Error fetching market data from Worker:", error);
+                    // If an error occurs, do NOT overwrite local storage.
+                    // The page will continue to display the existing cachedData (if any).
+                    
                     if (retries === maxRetries - 1) {
-                        console.error("Failed to fetch market data after multiple retries.");
-                        // Optionally display a user-friendly error message on the page
+                        console.error("Failed to fetch market data after multiple retries. Displaying cached data if available.");
                     }
                     retries++;
                     await new Promise(resolve => setTimeout(resolve, delay));
-                    delay *= 2;
+                    delay *= 2; // Exponential backoff
                 }
             }
         }
